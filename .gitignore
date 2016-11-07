@@ -63,6 +63,11 @@ Temporary Items
 *.userprefs
 
 # Build results
+*.tlog
+*.idb
+*.manifest
+*.lastbuildstat
+*.res
 # [Dd]ebug/
 # [Dd]ebugPublic/
 # [Rr]elease/
