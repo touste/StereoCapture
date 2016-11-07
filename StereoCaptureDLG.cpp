@@ -620,7 +620,7 @@ void StereoCaptureDlg::OnBnClickedButtonsnapimage()
 	}
 	else
 	{
-		::MessageBox(0, "Devices are inresponsive or the same device has been selected twice.", "Error", MB_OK | MB_ICONERROR);
+		::MessageBox(0, "Devices are unresponsive or the same device has been selected twice.", "Error", MB_OK | MB_ICONERROR);
 	}
 
 	// If needed, restart live streams
