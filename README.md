@@ -8,7 +8,8 @@ This software snaps a sequence of images for a system of 2 cameras with minimal 
 Frame capture can be triggered by a timer by setting a framerate, or by selecting fast mode, 
 in which case all frames coming from the devices are saved (in this case, the framerate matches the camera settings).
 The capture gets unstable when the bandwidth of the USB ports is saturated, and can lead to the app freezing.
-This software relies on the IC Imaging Control toolikt and only works for The Imaging Source cameras on Windows.
+
+This software relies on the IC Imaging Control toolikt and **only works for The Imaging Source industrial cameras on Windows**. It has been tested on W7 with 2 DMK23UM021 cameras.
 
 ## Requirements
 
