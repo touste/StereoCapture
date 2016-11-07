@@ -317,11 +317,6 @@ void StereoCaptureDlg::OnBnClickedButtondevice(size_t nstream)
 
 	m_cGrabber[nstream].showDevicePage(this->m_hWnd);
 
-	while (m_cGrabber[0].getDev().getUniqueName() == m_cGrabber[1].getDev().getUniqueName()) {
-		::MessageBox(0, "This device has already been selected.", "Error", MB_OK | MB_ICONERROR);
-		m_cGrabber[nstream].showDevicePage(this->m_hWnd);
-	}
-
 	// If we have selected a valid device, save it to the file "device.xml", so
 	// the application can load it automatically when it is started the next time.
 	if (m_cGrabber[nstream].isDevValid())
@@ -431,8 +426,8 @@ void StereoCaptureDlg::OnBnClickedButtonsnapimage()
 	PrepareSink(0);
 	PrepareSink(1);
 
-	// Perform capture only if devices are valid
-	if (m_cGrabber[0].isDevValid() && m_cGrabber[1].isDevValid())
+	// Perform capture only if devices are valid and different devices have been selected
+	if (m_cGrabber[0].isDevValid() && m_cGrabber[1].isDevValid() && (m_cGrabber[0].getDev().getUniqueName() != m_cGrabber[1].getDev().getUniqueName()))
 	{
 
 		// Add listener to know when a frame has been captured
@@ -622,6 +617,10 @@ void StereoCaptureDlg::OnBnClickedButtonsnapimage()
 
 		}
 
+	}
+	else
+	{
+		::MessageBox(0, "Devices are inresponsive or the same device has been selected twice.", "Error", MB_OK | MB_ICONERROR);
 	}
 
 	// If needed, restart live streams
